@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 
 //latihan1
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/struk/{barang}/{jenis}/{nama}/{telepon}/{jumlah}/{pembayaran}', function($barang,$jenis,$nama,$telepon,$jumlah,$pembayaran){
    if ($barang == 'poco') {
@@ -73,4 +76,11 @@ Route::get('/struk/{barang}/{jenis}/{nama}/{telepon}/{jumlah}/{pembayaran}', fun
           "Potongan :".number_format($potongan)."<br>".
           "<hr>".
           "Total Pembayaran".number_format($hasil); 
+});
+
+Route::get('/siswa',function(){
+
+    $data_siswa = ['Kiki','Jamal','Rangga'];
+    return view('tampil',compact('data_siswa'));
+
 });
